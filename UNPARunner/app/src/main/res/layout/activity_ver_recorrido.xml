@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/detallesMapa"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="350dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/detallesBotonInicio"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="49dp"
+                    android:layout_margin="2dp"
+                    android:text="@string/VerRecorrido_boton_inicio"
+                    style="?android:attr/buttonBarButtonStyle" />
+
+                <Button
+                    android:id="@+id/detallesBotonFin"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="49dp"
+                    android:layout_margin="2dp"
+                    android:text="@string/VerRecorrido_boton_fin"
+                    style="?android:attr/buttonBarButtonStyle" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/detallesDistanciaTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:paddingTop="10dp"
+                android:text="@string/VerRecorrido_distancia"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detallesDistancia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:paddingBottom="10dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/detallesDuracionTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/VerRecorrido_duracion"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detallesDuracion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:paddingBottom="10dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/detallesFechaTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/VerRecorrido_fecha"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detallesFecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:paddingBottom="10dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/detallesHoraInicioTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/VerRecorrido_hora_inicio"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detallesHoraInicio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:paddingBottom="10dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/detallesHoraFinalizacionTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/VerRecorrido_hora_finalizacion"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detallesHoraFinalizacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:paddingBottom="10dp"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/detallesBotonVolver"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:layout_margin="2dp"
+                android:text="@string/VerRecorrido_boton_volver" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

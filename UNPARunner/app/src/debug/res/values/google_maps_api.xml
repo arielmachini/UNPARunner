@@ -1,0 +1,13 @@
+<resources>
+    <!--
+    Package name:
+    ar.edu.unpa.uarg.gisp.unparunner
+
+    SHA-1 certificate fingerprint:
+    5A:A3:A9:44:F4:56:BA:EB:6C:86:AD:6A:F2:CC:95:42:B1:32:BC:6E
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBxBDpP9giYTNDtjhdHGGjXmq0VIUtke44</string>
+</resources>

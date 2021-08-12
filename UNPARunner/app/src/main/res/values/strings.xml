@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">UNPA Runner</string>
+    <string name="title_activity_ver_recorrido">Detalles del recorrido</string>
+
+    <string name="MainActivity_recorridos_registrados">recorridos registrados</string>
+    <string name="MainActivity_boton_mis_recorridos">Mis recorridos</string>
+    <string name="MainActivity_boton_nuevo_recorrido">Nuevo recorrido</string>
+
+    <string name="HistorialRecorridos_boton_ver_recorrido">Ver detalles del recorrido</string>
+    <string name="HistorialRecorridos_boton_volver">Volver</string>
+
+    <string name="AgregarRecorrido_cero_km">– KM</string>
+    <string name="AgregarRecorrido_cero_puntos">Aún no se registró ningún punto</string>
+    <plurals name="AgregarRecorrido_puntos_registrados">
+        <item quantity="one">Un punto registrado</item>
+        <item quantity="other">%d puntos registrados</item>
+    </plurals>
+    <string name="AgregarRecorrido_boton_iniciar_recorrido">Iniciar</string>
+    <string name="AgregarRecorrido_boton_finalizar_recorrido">Detener (Guardar)</string>
+    <string name="AgregarRecorrido_boton_volver">Volver y descartar mi progreso</string>
+    <string name="AgregarRecorrido_toast_recorrido_guardado">El recorrido fue guardado exitosamente.</string>
+    <string name="AgregarRecorrido_toast_recorrido_pocos_puntos">No se pudo guardar el recorrido porque tenía menos de 2 puntos.</string>
+
+    <string name="VerRecorrido_duracion">Duración</string>
+    <string name="VerRecorrido_distancia">Distancia</string>
+    <string name="VerRecorrido_fecha">Fecha del recorrido</string>
+    <string name="VerRecorrido_hora_inicio">Hora de inicio</string>
+    <string name="VerRecorrido_hora_finalizacion">Hora de finalización</string>
+    <string name="VerRecorrido_boton_inicio">Ver punto inicial</string>
+    <string name="VerRecorrido_boton_fin">Ver punto final</string>
+    <string name="VerRecorrido_boton_volver">Volver</string>
+</resources>
