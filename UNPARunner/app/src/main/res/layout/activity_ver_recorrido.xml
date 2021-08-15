@@ -130,6 +130,13 @@
                 android:textSize="18sp" />
 
             <Button
+                android:id="@+id/detallesBotonBorrar"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:layout_margin="2dp"
+                android:text="@string/VerRecorrido_boton_borrar" />
+
+            <Button
                 android:id="@+id/detallesBotonVolver"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"

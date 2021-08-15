@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">UNPA Runner</string>
+    <string name="title_activity_historial_recorridos">Mis recorridos</string>
+    <string name="title_activity_main">UNPA Runner</string>
+    <string name="title_activity_nuevo_recorrido">Nuevo recorrido</string>
     <string name="title_activity_ver_recorrido">Detalles del recorrido</string>
 
     <string name="MainActivity_recorridos_registrados">recorridos registrados</string>
@@ -28,5 +31,6 @@
     <string name="VerRecorrido_hora_finalizacion">Hora de finalización</string>
     <string name="VerRecorrido_boton_inicio">Ver punto inicial</string>
     <string name="VerRecorrido_boton_fin">Ver punto final</string>
+    <string name="VerRecorrido_boton_borrar">Borrar este recorrido</string>
     <string name="VerRecorrido_boton_volver">Volver</string>
 </resources>

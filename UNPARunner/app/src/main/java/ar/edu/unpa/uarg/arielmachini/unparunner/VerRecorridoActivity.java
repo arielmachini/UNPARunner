@@ -1,5 +1,7 @@
 package ar.edu.unpa.uarg.arielmachini.unparunner;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -7,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -26,6 +29,7 @@ import ar.edu.unpa.uarg.arielmachini.unparunner.sqlite.ConstantesSQLite;
 public class VerRecorridoActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private static final int PUNTO_INICIO = 0, PUNTO_FIN = 1;
+    private DialogInterface.OnClickListener escuchadorDialogo;
     private GoogleMap mapaRecorrido;
     private int idRecorrido;
     private Recorrido recorrido;
@@ -49,6 +53,7 @@ public class VerRecorridoActivity extends FragmentActivity implements OnMapReady
         /* Se inicializan los objetos referentes a la GUI: */
         Button buttonVerInicio = findViewById(R.id.detallesBotonInicio);
         Button buttonVerFin = findViewById(R.id.detallesBotonFin);
+        Button buttonBorrarRecorrido = findViewById(R.id.detallesBotonBorrar);
         Button buttonVolver = findViewById(R.id.detallesBotonVolver);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.detallesMapa);
         TextView textViewDistancia = findViewById(R.id.detallesDistancia);
@@ -65,9 +70,12 @@ public class VerRecorridoActivity extends FragmentActivity implements OnMapReady
             this.centrarVistaEn(PUNTO_FIN);
         });
 
+        buttonBorrarRecorrido.setOnClickListener(view -> {
+            new AlertDialog.Builder(VerRecorridoActivity.this).setMessage("¿Está seguro de que quiere borrar este recorrido? Esta acción no se puede deshacer.").setPositiveButton("Sí", this.escuchadorDialogo).setNegativeButton("No", this.escuchadorDialogo).show();
+        });
+
         buttonVolver.setOnClickListener(view -> {
-            startActivity(new android.content.Intent(this, HistorialRecorridosActivity.class));
-            finish();
+            this.volver();
         });
 
         /* Se inicializa el resto de las variables: */
@@ -75,6 +83,24 @@ public class VerRecorridoActivity extends FragmentActivity implements OnMapReady
         SQLiteDatabase bd = conexionSQLite.getReadableDatabase();
         Cursor cursor = bd.rawQuery("SELECT * FROM " + ConstantesSQLite.NOMBRE_TABLA_RECORRIDO + " WHERE `" + ConstantesSQLite.RECORRIDO_PRIMARY_KEY + "` = ?", new String[]{String.valueOf(this.idRecorrido)});
         this.recorrido = new Recorrido();
+
+        this.escuchadorDialogo = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int opcionSeleccionada) {
+                if (opcionSeleccionada == DialogInterface.BUTTON_POSITIVE) {
+                    SQLiteDatabase bd = conexionSQLite.getWritableDatabase();
+
+                    bd.execSQL("DELETE FROM " + ConstantesSQLite.NOMBRE_TABLA_RECORRIDO + " WHERE `" + ConstantesSQLite.RECORRIDO_PRIMARY_KEY + "` = ?", new String[]{String.valueOf(idRecorrido)});
+                    bd.execSQL("DELETE FROM " + ConstantesSQLite.NOMBRE_TABLA_PUNTO + " WHERE `" + ConstantesSQLite.PUNTO_ID_RECORRIDO + "` = ?", new String[]{String.valueOf(idRecorrido)});
+
+                    bd.close();
+
+                    Toast.makeText(VerRecorridoActivity.this, "Recorrido eliminado", Toast.LENGTH_SHORT).show();
+
+                    volver();
+                }
+            }
+        };
 
         /* Se recuperan las propiedades del recorrido y sus respectivos puntos: */
         cursor.moveToFirst();
@@ -145,6 +171,11 @@ public class VerRecorridoActivity extends FragmentActivity implements OnMapReady
 
             this.mapaRecorrido.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngFin, 16));
         }
+    }
+
+    private void volver() {
+        startActivity(new android.content.Intent(this, HistorialRecorridosActivity.class));
+        finish();
     }
 
 }

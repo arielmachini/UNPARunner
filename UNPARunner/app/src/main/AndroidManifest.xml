@@ -19,7 +19,7 @@
         <service
             android:name="ar.edu.unpa.uarg.arielmachini.unparunner.servicio.ServicioLocalizacion"
             android:enabled="true"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -27,6 +27,7 @@
 
         <activity
             android:name="ar.edu.unpa.uarg.arielmachini.unparunner.MainActivity"
+            android:label="@string/title_activity_main"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,11 +38,13 @@
 
         <activity
             android:name="ar.edu.unpa.uarg.arielmachini.unparunner.NuevoRecorridoActivity"
+            android:label="@string/title_activity_nuevo_recorrido"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
 
         <activity
             android:name="ar.edu.unpa.uarg.arielmachini.unparunner.HistorialRecorridosActivity"
+            android:label="@string/title_activity_historial_recorridos"
             android:screenOrientation="portrait" />
 
         <activity

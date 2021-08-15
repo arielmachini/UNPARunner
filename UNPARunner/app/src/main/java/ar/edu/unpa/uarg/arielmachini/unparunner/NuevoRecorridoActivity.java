@@ -175,8 +175,6 @@ public class NuevoRecorridoActivity extends AppCompatActivity {
 
         idRecorrido = cursor.getInt(0);
 
-        bd.close();
-
         bd = conexionSQLite.getWritableDatabase();
 
         for (Punto punto : recorrido.getPuntos()) {

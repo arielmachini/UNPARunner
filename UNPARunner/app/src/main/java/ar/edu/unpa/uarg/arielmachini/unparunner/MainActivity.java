@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DecimalFormat;
+
 import ar.edu.unpa.uarg.arielmachini.unparunner.sqlite.ConexionSQLite;
 import ar.edu.unpa.uarg.arielmachini.unparunner.sqlite.ConstantesSQLite;
 
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = bd.rawQuery("SELECT SUM(`" + ConstantesSQLite.RECORRIDO_DISTANCIA + "`) FROM `" + ConstantesSQLite.NOMBRE_TABLA_RECORRIDO + "`", new String[0]);
 
         cursor.moveToFirst();
-        this.textViewDistanciaTotalKM.setText(cursor.getDouble(0) + " KM en total");
+        this.textViewDistanciaTotalKM.setText(new DecimalFormat("###.##").format(cursor.getDouble(0)) + " KM en total");
 
         bd.close();
     }
