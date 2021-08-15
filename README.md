@@ -4,4 +4,4 @@
 En este repositorio de GitHub se presenta una nueva versión mejorada de UNPA Runner, preparada para ser utilizada por el público general.
 # Descargar
 Si desea descargar UNPA Runner, por favor haga clic en el siguiente botón.\
-<br/>[![Descargar UNPA Runner](https://github.com/arielmachini/UNPARunnerQ2MGPS/blob/main/Im%C3%A1genes/Boton_descargar.png)](https://github.com/arielmachini/UNPARunner/raw/main/UNPA%20Runner.apk)
+<br/>[![Descargar UNPA Runner](https://github.com/arielmachini/UNPARunner/releases/latest)
