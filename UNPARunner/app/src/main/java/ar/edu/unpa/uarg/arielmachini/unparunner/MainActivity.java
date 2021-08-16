@@ -15,6 +15,7 @@ import ar.edu.unpa.uarg.arielmachini.unparunner.sqlite.ConexionSQLite;
 import ar.edu.unpa.uarg.arielmachini.unparunner.sqlite.ConstantesSQLite;
 
 public class MainActivity extends AppCompatActivity {
+
     ConexionSQLite conexionSQLite;
     TextView textViewNumeroRecorridos;
     TextView textViewDistanciaTotalKM;

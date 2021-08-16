@@ -21,4 +21,5 @@ public class Aplicacion extends Application {
             getSystemService(NotificationManager.class).createNotificationChannel(canalNotificacionServicio);
         }
     }
+
 }
