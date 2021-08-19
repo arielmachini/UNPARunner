@@ -38,8 +38,8 @@ public class RecorridoAdapter extends RecyclerView.Adapter<RecorridoAdapter.Reco
 
         int idRecorrido = this.cursor.getInt(0);
 
-        holder.setFechaRecorrido(this.cursor.getString(1));
-        holder.setIDRecorrido(idRecorrido);
+        holder.setStringFechaRecorrido(contexto.getString(R.string.HistorialRecorridos_Fecha_recorrido) + " " + this.cursor.getString(1));
+        holder.setStringIDRecorrido(contexto.getString(R.string.Varios_Recorrido_titulo) + idRecorrido);
         holder.crearOnClickListenerBotonDetalles(this.contexto, idRecorrido);
     }
 
@@ -48,7 +48,7 @@ public class RecorridoAdapter extends RecyclerView.Adapter<RecorridoAdapter.Reco
         return this.cursor.getCount();
     }
 
-    public class RecorridoViewHolder extends RecyclerView.ViewHolder {
+    public static class RecorridoViewHolder extends RecyclerView.ViewHolder {
 
         private final Button buttonVerDetallesRecorrido;
         private final TextView textViewTituloRecorrido;
@@ -71,12 +71,12 @@ public class RecorridoAdapter extends RecyclerView.Adapter<RecorridoAdapter.Reco
             });
         }
 
-        public void setFechaRecorrido(String fechaRecorrido) {
-            this.textViewFechaRecorrido.setText("Registrado el " + fechaRecorrido);
+        public void setStringFechaRecorrido(String stringFechaRecorrido) {
+            this.textViewFechaRecorrido.setText(stringFechaRecorrido);
         }
 
-        public void setIDRecorrido(int idRecorrido) {
-            this.textViewTituloRecorrido.setText("Recorrido #" + idRecorrido);
+        public void setStringIDRecorrido(String stringIdRecorrido) {
+            this.textViewTituloRecorrido.setText(stringIdRecorrido);
         }
 
     }

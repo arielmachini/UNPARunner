@@ -10,7 +10,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/Nombre_aplicacion"
         android:name="ar.edu.unpa.uarg.arielmachini.unparunner.Aplicacion"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -27,29 +27,25 @@
 
         <activity
             android:name="ar.edu.unpa.uarg.arielmachini.unparunner.MainActivity"
-            android:label="@string/title_activity_main"
+            android:label="@string/Nombre_aplicacion"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
             android:name="ar.edu.unpa.uarg.arielmachini.unparunner.NuevoRecorridoActivity"
-            android:label="@string/title_activity_nuevo_recorrido"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
 
         <activity
             android:name="ar.edu.unpa.uarg.arielmachini.unparunner.HistorialRecorridosActivity"
-            android:label="@string/title_activity_historial_recorridos"
             android:screenOrientation="portrait" />
 
         <activity
             android:name="ar.edu.unpa.uarg.arielmachini.unparunner.VerRecorridoActivity"
-            android:label="@string/title_activity_ver_recorrido"
             android:screenOrientation="portrait" />
     </application>
 

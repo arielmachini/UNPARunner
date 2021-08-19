@@ -32,6 +32,8 @@ public class ServicioLocalizacion extends Service {
     public static final int ID_SERVICIO = 1308;
 
     private FusedLocationProviderClient fusedLocationProviderClient;
+    private Intent intentNotificacion;
+    private PendingIntent pendingIntent;
     private Recorrido recorrido;
 
     private final LocationCallback locationCallback = new LocationCallback() {
@@ -68,21 +70,11 @@ public class ServicioLocalizacion extends Service {
     public void onCreate() {
         super.onCreate();
 
-        Intent intentNotificacion = new Intent(this, NuevoRecorridoActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intentNotificacion, 0);
+        this.intentNotificacion = new Intent(this, NuevoRecorridoActivity.class);
+        this.pendingIntent = PendingIntent.getActivity(this, 0, intentNotificacion, 0);
 
         this.fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         this.recorrido = new Recorrido();
-
-        Notification notificacionRecorrido = new NotificationCompat.Builder(this, Aplicacion.ID_CANAL_NOTIFICACION)
-                .setContentTitle("Recorrido en progreso")
-                .setContentText("Se está registrando un nuevo recorrido")
-                .setColor(ContextCompat.getColor(this, R.color.colorPrimary))
-                .setContentIntent(pendingIntent)
-                .setSmallIcon(R.drawable.ic_notificacion_recorrido)
-                .build();
-
-        startForeground(ID_SERVICIO, notificacionRecorrido);
     }
 
     @Override
@@ -90,6 +82,16 @@ public class ServicioLocalizacion extends Service {
         int codigoAccion = intent.getIntExtra("codigoAccion", 0); // El código por defecto 0 indica que se quiere iniciar el servicio.
 
         if (codigoAccion == 0) {
+            Notification notificacionRecorrido = new NotificationCompat.Builder(this, Aplicacion.ID_CANAL_NOTIFICACION)
+                    .setContentTitle(getString(R.string.NuevoRecorrido_Notificacion_Titulo))
+                    .setContentText(getString(R.string.NuevoRecorrido_Notificacion_Contenido))
+                    .setColor(ContextCompat.getColor(this, R.color.colorPrimary))
+                    .setContentIntent(pendingIntent)
+                    .setSmallIcon(R.drawable.ic_notificacion_recorrido)
+                    .build();
+
+            startForeground(ID_SERVICIO, notificacionRecorrido);
+
             this.actualizarUbicacion();
         } else {
             this.fusedLocationProviderClient.removeLocationUpdates(this.locationCallback);
@@ -97,11 +99,11 @@ public class ServicioLocalizacion extends Service {
             if (codigoAccion == NuevoRecorridoActivity.ACCION_GUARDAR) {
                 if (this.recorrido.getPuntos().size() >= 2) {
                     int idRecorrido = NuevoRecorridoActivity.getInstance().guardarRecorrido(this.recorrido);
-                    Toast.makeText(this, R.string.AgregarRecorrido_toast_recorrido_guardado, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.NuevoRecorrido_Toast_Guardado, Toast.LENGTH_SHORT).show();
 
                     this.redireccionarVerRecorrido(idRecorrido);
                 } else {
-                    Toast.makeText(this, R.string.AgregarRecorrido_toast_recorrido_pocos_puntos, Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.NuevoRecorrido_Toast_No_guardado, Toast.LENGTH_LONG).show();
 
                     this.redireccionarMainActivity();
                 }

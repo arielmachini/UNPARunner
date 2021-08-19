@@ -62,21 +62,13 @@ public class VerRecorridoActivity extends FragmentActivity implements OnMapReady
         TextView textViewHoraInicio = findViewById(R.id.detallesHoraInicio);
         TextView textViewHoraFinalizacion = findViewById(R.id.detallesHoraFinalizacion);
 
-        buttonVerInicio.setOnClickListener(view -> {
-            this.centrarVistaEn(PUNTO_INICIO);
-        });
+        buttonVerInicio.setOnClickListener(view -> this.centrarVistaEn(PUNTO_INICIO));
 
-        buttonVerFin.setOnClickListener(view -> {
-            this.centrarVistaEn(PUNTO_FIN);
-        });
+        buttonVerFin.setOnClickListener(view -> this.centrarVistaEn(PUNTO_FIN));
 
-        buttonBorrarRecorrido.setOnClickListener(view -> {
-            new AlertDialog.Builder(VerRecorridoActivity.this).setMessage("¿Está seguro de que quiere borrar este recorrido? Esta acción no se puede deshacer.").setPositiveButton("Sí", this.escuchadorDialogo).setNegativeButton("No", this.escuchadorDialogo).show();
-        });
+        buttonBorrarRecorrido.setOnClickListener(view -> new AlertDialog.Builder(VerRecorridoActivity.this).setMessage(getString(R.string.VerRecorrido_Dialogo_Borrar_Contenido)).setPositiveButton(getString(R.string.VerRecorrido_Dialogo_Borrar_Boton_Si), this.escuchadorDialogo).setNegativeButton(getString(R.string.VerRecorrido_Dialogo_Borrar_Boton_No), this.escuchadorDialogo).show());
 
-        buttonVolver.setOnClickListener(view -> {
-            this.volver();
-        });
+        buttonVolver.setOnClickListener(view -> this.volver());
 
         /* Se inicializa el resto de las variables: */
         ConexionSQLite conexionSQLite = new ConexionSQLite(this, null, 1);
@@ -84,21 +76,18 @@ public class VerRecorridoActivity extends FragmentActivity implements OnMapReady
         Cursor cursor = bd.rawQuery("SELECT * FROM " + ConstantesSQLite.NOMBRE_TABLA_RECORRIDO + " WHERE `" + ConstantesSQLite.RECORRIDO_PRIMARY_KEY + "` = ?", new String[]{String.valueOf(this.idRecorrido)});
         this.recorrido = new Recorrido();
 
-        this.escuchadorDialogo = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int opcionSeleccionada) {
-                if (opcionSeleccionada == DialogInterface.BUTTON_POSITIVE) {
-                    SQLiteDatabase bd = conexionSQLite.getWritableDatabase();
+        this.escuchadorDialogo = (dialogInterface, opcionSeleccionada) -> {
+            if (opcionSeleccionada == DialogInterface.BUTTON_POSITIVE) {
+                SQLiteDatabase bdBorrarRecorrido = conexionSQLite.getWritableDatabase();
 
-                    bd.execSQL("DELETE FROM " + ConstantesSQLite.NOMBRE_TABLA_RECORRIDO + " WHERE `" + ConstantesSQLite.RECORRIDO_PRIMARY_KEY + "` = ?", new String[]{String.valueOf(idRecorrido)});
-                    bd.execSQL("DELETE FROM " + ConstantesSQLite.NOMBRE_TABLA_PUNTO + " WHERE `" + ConstantesSQLite.PUNTO_ID_RECORRIDO + "` = ?", new String[]{String.valueOf(idRecorrido)});
+                bdBorrarRecorrido.execSQL("DELETE FROM " + ConstantesSQLite.NOMBRE_TABLA_RECORRIDO + " WHERE `" + ConstantesSQLite.RECORRIDO_PRIMARY_KEY + "` = ?", new String[]{String.valueOf(idRecorrido)});
+                bdBorrarRecorrido.execSQL("DELETE FROM " + ConstantesSQLite.NOMBRE_TABLA_PUNTO + " WHERE `" + ConstantesSQLite.PUNTO_ID_RECORRIDO + "` = ?", new String[]{String.valueOf(idRecorrido)});
 
-                    bd.close();
+                bdBorrarRecorrido.close();
 
-                    Toast.makeText(VerRecorridoActivity.this, "Recorrido eliminado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(VerRecorridoActivity.this, getString(R.string.VerRecorrido_Toast_Borrar_exitoso), Toast.LENGTH_SHORT).show();
 
-                    volver();
-                }
+                volver();
             }
         };
 
@@ -123,6 +112,9 @@ public class VerRecorridoActivity extends FragmentActivity implements OnMapReady
             this.recorrido.agregarPunto(punto);
         } while (cursor.moveToNext());
 
+        cursor.close();
+        bd.close();
+
         /* Se actualiza la vista: */
         textViewDistancia.setText(this.recorrido.getDistancia() + " KM");
         textViewDuracion.setText(this.recorrido.getDuracion());
@@ -131,7 +123,7 @@ public class VerRecorridoActivity extends FragmentActivity implements OnMapReady
         textViewHoraFinalizacion.setText(this.recorrido.getHoraFinalizacion());
 
         mapFragment.getMapAsync(this);
-        setTitle("Recorrido #" + this.idRecorrido);
+        setTitle(getString(R.string.Varios_Recorrido_titulo) + this.idRecorrido);
     }
 
     @Override

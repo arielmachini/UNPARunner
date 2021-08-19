@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Varios_Mis_recorridos">My tours</string>
+    <string name="Varios_Recorrido_titulo">Tour #</string>
+    <string name="Varios_Volver">Go back</string>
+
+    <string name="MainActivity_Boton_Nuevo_recorrido">New tour</string>
+    <string name="MainActivity_Distancia_total">KM in total</string>
+    <string name="MainActivity_Numero_recorridos_registrados">registered tours</string>
+
+    <string name="HistorialRecorridos_Boton_Ver">Tour details</string>
+    <string name="HistorialRecorridos_Fecha_recorrido">Registered on</string>
+
+    <string name="NuevoRecorrido_Boton_Descartar">Go back and discard my progress</string>
+    <string name="NuevoRecorrido_Boton_Finalizar">Stop (Save)</string>
+    <string name="NuevoRecorrido_Boton_Iniciar">Start</string>
+    <string name="NuevoRecorrido_Cero_puntos">No points registered</string>
+    <string name="NuevoRecorrido_Notificacion_Contenido">A new tour is being registered</string>
+    <string name="NuevoRecorrido_Notificacion_Titulo">Tour in progress</string>
+    <string name="NuevoRecorrido_Toast_Guardado">Tour saved successfully</string>
+    <string name="NuevoRecorrido_Toast_No_guardado">Tour couldn\'t be saved because it had less than 2 points</string>
+    <string name="NuevoRecorrido_Toast_Permisos_faltantes">UNPA Runner won\'t be able to register your tour if it hasn\'t the permission to access the device\'s location</string>
+    <plurals name="NuevoRecorrido_Puntos_registrados">
+        <item quantity="one">One point registered</item>
+        <item quantity="other">%d points registered</item>
+    </plurals>
+
+    <string name="VerRecorrido_Boton_Borrar">Delete this tour</string>
+    <string name="VerRecorrido_Boton_Ver_fin">View finish point</string>
+    <string name="VerRecorrido_Boton_Ver_inicio">View start point</string>
+    <string name="VerRecorrido_Distancia">Distance</string>
+    <string name="VerRecorrido_Duracion">Duration</string>
+    <string name="VerRecorrido_Fecha">Date</string>
+    <string name="VerRecorrido_Hora_finalizacion">End time</string>
+    <string name="VerRecorrido_Hora_inicio">Start time</string>
+    <string name="VerRecorrido_Dialogo_Borrar_Boton_No">No</string>
+    <string name="VerRecorrido_Dialogo_Borrar_Boton_Si">Yes</string>
+    <string name="VerRecorrido_Dialogo_Borrar_Contenido">Are you sure you want to delete this tour? This action cannot be undone</string>
+    <string name="VerRecorrido_Toast_Borrar_exitoso">Tour deleted</string>
+</resources>

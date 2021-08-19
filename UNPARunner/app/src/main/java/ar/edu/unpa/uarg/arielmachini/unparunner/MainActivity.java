@@ -32,9 +32,7 @@ public class MainActivity extends AppCompatActivity {
         this.textViewNumeroRecorridos = findViewById(R.id.mainNumeroRecorridos);
         this.textViewDistanciaTotalKM = findViewById(R.id.mainTextoDistanciaTotal);
 
-        buttonVerHistorial.setOnClickListener(view -> {
-            startActivity(new Intent(this, HistorialRecorridosActivity.class));
-        });
+        buttonVerHistorial.setOnClickListener(view -> startActivity(new Intent(this, HistorialRecorridosActivity.class)));
 
         buttonNuevoRecorrido.setOnClickListener(view -> {
             startActivity(new Intent(this, NuevoRecorridoActivity.class));
@@ -60,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         cursor.moveToFirst();
         this.textViewNumeroRecorridos.setText(cursor.getString(0));
 
+        cursor.close();
         bd.close();
     }
 
@@ -68,8 +67,9 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = bd.rawQuery("SELECT SUM(`" + ConstantesSQLite.RECORRIDO_DISTANCIA + "`) FROM `" + ConstantesSQLite.NOMBRE_TABLA_RECORRIDO + "`", new String[0]);
 
         cursor.moveToFirst();
-        this.textViewDistanciaTotalKM.setText(new DecimalFormat("###.##").format(cursor.getDouble(0)) + " KM en total");
+        this.textViewDistanciaTotalKM.setText(new DecimalFormat("###.##").format(cursor.getDouble(0)) + " " + getString(R.string.MainActivity_Distancia_total));
 
+        cursor.close();
         bd.close();
     }
 

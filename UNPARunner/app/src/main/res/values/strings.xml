@@ -1,36 +1,41 @@
 <resources>
-    <string name="app_name">UNPA Runner</string>
-    <string name="title_activity_historial_recorridos">Mis recorridos</string>
-    <string name="title_activity_main">UNPA Runner</string>
-    <string name="title_activity_nuevo_recorrido">Nuevo recorrido</string>
-    <string name="title_activity_ver_recorrido">Detalles del recorrido</string>
+    <string name="Nombre_aplicacion" translatable="false">UNPA Runner</string>
+    <string name="Varios_Mis_recorridos">Mis recorridos</string>
+    <string name="Varios_Recorrido_titulo">Recorrido #</string>
+    <string name="Varios_Volver">Volver</string>
 
-    <string name="MainActivity_recorridos_registrados">recorridos registrados</string>
-    <string name="MainActivity_boton_mis_recorridos">Mis recorridos</string>
-    <string name="MainActivity_boton_nuevo_recorrido">Nuevo recorrido</string>
+    <string name="MainActivity_Boton_Nuevo_recorrido">Nuevo recorrido</string>
+    <string name="MainActivity_Distancia_total">KM en total</string>
+    <string name="MainActivity_Numero_recorridos_registrados">recorridos registrados</string>
 
-    <string name="HistorialRecorridos_boton_ver_recorrido">Ver detalles del recorrido</string>
-    <string name="HistorialRecorridos_boton_volver">Volver</string>
+    <string name="HistorialRecorridos_Boton_Ver">Ver detalles del recorrido</string>
+    <string name="HistorialRecorridos_Fecha_recorrido">Registrado el</string>
 
-    <string name="AgregarRecorrido_cero_km">– KM</string>
-    <string name="AgregarRecorrido_cero_puntos">Aún no se registró ningún punto</string>
-    <plurals name="AgregarRecorrido_puntos_registrados">
+    <string name="NuevoRecorrido_Boton_Descartar">Volver y descartar mi progreso</string>
+    <string name="NuevoRecorrido_Boton_Finalizar">Detener (Guardar)</string>
+    <string name="NuevoRecorrido_Boton_Iniciar">Iniciar</string>
+    <string name="NuevoRecorrido_Cero_KM" translatable="false">– KM</string>
+    <string name="NuevoRecorrido_Cero_puntos">Aún no se registró ningún punto</string>
+    <string name="NuevoRecorrido_Notificacion_Contenido">Se está registrando un nuevo recorrido</string>
+    <string name="NuevoRecorrido_Notificacion_Titulo">Recorrido en progreso</string>
+    <string name="NuevoRecorrido_Toast_Guardado">El recorrido fue guardado exitosamente</string>
+    <string name="NuevoRecorrido_Toast_No_guardado">No se pudo guardar el recorrido porque tenía menos de 2 puntos</string>
+    <string name="NuevoRecorrido_Toast_Permisos_faltantes">UNPA Runner no podrá registrar su recorrido si no cuenta con el permiso para acceder a la ubicación del dispositivo</string>
+    <plurals name="NuevoRecorrido_Puntos_registrados">
         <item quantity="one">Un punto registrado</item>
         <item quantity="other">%d puntos registrados</item>
     </plurals>
-    <string name="AgregarRecorrido_boton_iniciar_recorrido">Iniciar</string>
-    <string name="AgregarRecorrido_boton_finalizar_recorrido">Detener (Guardar)</string>
-    <string name="AgregarRecorrido_boton_volver">Volver y descartar mi progreso</string>
-    <string name="AgregarRecorrido_toast_recorrido_guardado">El recorrido fue guardado exitosamente.</string>
-    <string name="AgregarRecorrido_toast_recorrido_pocos_puntos">No se pudo guardar el recorrido porque tenía menos de 2 puntos.</string>
 
-    <string name="VerRecorrido_duracion">Duración</string>
-    <string name="VerRecorrido_distancia">Distancia</string>
-    <string name="VerRecorrido_fecha">Fecha del recorrido</string>
-    <string name="VerRecorrido_hora_inicio">Hora de inicio</string>
-    <string name="VerRecorrido_hora_finalizacion">Hora de finalización</string>
-    <string name="VerRecorrido_boton_inicio">Ver punto inicial</string>
-    <string name="VerRecorrido_boton_fin">Ver punto final</string>
-    <string name="VerRecorrido_boton_borrar">Borrar este recorrido</string>
-    <string name="VerRecorrido_boton_volver">Volver</string>
+    <string name="VerRecorrido_Boton_Borrar">Borrar este recorrido</string>
+    <string name="VerRecorrido_Boton_Ver_fin">Ver punto final</string>
+    <string name="VerRecorrido_Boton_Ver_inicio">Ver punto inicial</string>
+    <string name="VerRecorrido_Distancia">Distancia</string>
+    <string name="VerRecorrido_Duracion">Duración</string>
+    <string name="VerRecorrido_Fecha">Fecha del recorrido</string>
+    <string name="VerRecorrido_Hora_finalizacion">Hora de finalización</string>
+    <string name="VerRecorrido_Hora_inicio">Hora de inicio</string>
+    <string name="VerRecorrido_Dialogo_Borrar_Boton_No">No</string>
+    <string name="VerRecorrido_Dialogo_Borrar_Boton_Si">Sí</string>
+    <string name="VerRecorrido_Dialogo_Borrar_Contenido">¿Está seguro de que quiere borrar este recorrido? Esta acción no se puede deshacer</string>
+    <string name="VerRecorrido_Toast_Borrar_exitoso">Recorrido eliminado</string>
 </resources>

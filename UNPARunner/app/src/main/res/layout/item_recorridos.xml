@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <View
         android:id="@+id/itemReglaHorizontal"
-        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/colorReglaHorizontal" />
 
     <TextView
         android:id="@+id/itemTitulo"
-        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/itemFecha"
-        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:textSize="18sp" />
 
     <Button
         android:id="@+id/itemBotonDetalles"
-        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/HistorialRecorridos_boton_ver_recorrido"
+        android:layout_marginBottom="10dp"
+        android:text="@string/HistorialRecorridos_Boton_Ver"
         android:textAllCaps="false" />
+
 </LinearLayout>

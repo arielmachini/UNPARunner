@@ -63,17 +63,11 @@ public class NuevoRecorridoActivity extends AppCompatActivity {
 
         buttonGuardarRecorrido.setEnabled(false);
 
-        buttonIniciarRecorrido.setOnClickListener(view -> {
-            this.iniciarServicio();
-        });
+        buttonIniciarRecorrido.setOnClickListener(view -> this.iniciarServicio());
 
-        buttonGuardarRecorrido.setOnClickListener(view -> {
-            this.detenerServicio(ACCION_GUARDAR);
-        });
+        buttonGuardarRecorrido.setOnClickListener(view -> this.detenerServicio(ACCION_GUARDAR));
 
-        buttonVolver.setOnClickListener(view -> {
-            this.detenerServicio(ACCION_SALIR);
-        });
+        buttonVolver.setOnClickListener(view -> this.detenerServicio(ACCION_SALIR));
     }
 
     @Override
@@ -81,7 +75,7 @@ public class NuevoRecorridoActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(NuevoRecorridoActivity.this, "UNPA Runner no podrá registrar su recorrido si no cuenta con el permiso para acceder a la ubicación del dispositivo", Toast.LENGTH_LONG).show();
+            Toast.makeText(NuevoRecorridoActivity.this, getString(R.string.NuevoRecorrido_Toast_Permisos_faltantes), Toast.LENGTH_LONG).show();
 
             return;
         }
@@ -131,7 +125,7 @@ public class NuevoRecorridoActivity extends AppCompatActivity {
             textViewDistanciaKM.setText(numberFormat.format(recorrido.getDistancia()).replace(",", "") + " KM");
         }
 
-        textViewCantidadPuntos.setText(getResources().getQuantityString(R.plurals.AgregarRecorrido_puntos_registrados, ++puntosRegistrados, puntosRegistrados));
+        textViewCantidadPuntos.setText(getResources().getQuantityString(R.plurals.NuevoRecorrido_Puntos_registrados, ++puntosRegistrados, puntosRegistrados));
 
         /* Este toast valida que se están registrando puntos nuevos en el recorrido. Debería aparecer de vez en cuando, inclusive cuando la aplicación esté minimizada (siempre y cuando el usuario se esté moviendo). */
         // Toast.makeText(NuevoRecorridoActivity.this, "Nuevo punto registrado (n.° " + (puntosRegistrados) + ")", Toast.LENGTH_SHORT).show();
@@ -156,7 +150,7 @@ public class NuevoRecorridoActivity extends AppCompatActivity {
         numberFormat.setMaximumFractionDigits(2);
         numberFormat.setRoundingMode(java.math.RoundingMode.HALF_UP);
 
-        recorrido.setDistancia(Float.valueOf(numberFormat.format(recorrido.getDistancia()).replace(",", "")));
+        recorrido.setDistancia(Float.parseFloat(numberFormat.format(recorrido.getDistancia()).replace(",", "")));
 
         /* Se detiene el cronómetro tras finalizar el recorrido: */
         this.chronometerRecorrido.stop();
@@ -181,6 +175,7 @@ public class NuevoRecorridoActivity extends AppCompatActivity {
             bd.execSQL("INSERT INTO " + ConstantesSQLite.NOMBRE_TABLA_PUNTO + " VALUES (NULL, " + idRecorrido + ", " + punto.getLatitud() + ", " + punto.getLongitud() + ")");
         }
 
+        cursor.close();
         bd.close();
 
         return idRecorrido;

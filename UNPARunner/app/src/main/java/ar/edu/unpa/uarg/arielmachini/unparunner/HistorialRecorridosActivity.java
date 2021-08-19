@@ -19,7 +19,7 @@ public class HistorialRecorridosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial_recorridos);
-        setTitle("Mis recorridos");
+        setTitle(getString(R.string.Varios_Mis_recorridos));
 
         /* Se inicializan los objetos referentes a la GUI: */
         Button buttonVolver = findViewById(R.id.historialBotonVolver);

@@ -17,30 +17,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/detallesBotonInicio"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
-                    android:layout_weight="50"
                     android:layout_height="49dp"
                     android:layout_margin="2dp"
-                    android:text="@string/VerRecorrido_boton_inicio"
-                    style="?android:attr/buttonBarButtonStyle" />
+                    android:layout_weight="50"
+                    android:text="@string/VerRecorrido_Boton_Ver_inicio" />
 
                 <Button
                     android:id="@+id/detallesBotonFin"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
-                    android:layout_weight="50"
                     android:layout_height="49dp"
                     android:layout_margin="2dp"
-                    android:text="@string/VerRecorrido_boton_fin"
-                    style="?android:attr/buttonBarButtonStyle" />
+                    android:layout_weight="50"
+                    android:text="@string/VerRecorrido_Boton_Ver_fin" />
             </LinearLayout>
 
             <TextView
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:paddingTop="10dp"
-                android:text="@string/VerRecorrido_distancia"
+                android:text="@string/VerRecorrido_Distancia"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/VerRecorrido_duracion"
+                android:text="@string/VerRecorrido_Duracion"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/VerRecorrido_fecha"
+                android:text="@string/VerRecorrido_Fecha"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -100,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/VerRecorrido_hora_inicio"
+                android:text="@string/VerRecorrido_Hora_inicio"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -117,7 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:text="@string/VerRecorrido_hora_finalizacion"
+                android:text="@string/VerRecorrido_Hora_finalizacion"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -130,18 +130,19 @@
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/detallesBotonBorrar"
-                android:layout_width="match_parent"
-                android:layout_height="49dp"
-                android:layout_margin="2dp"
-                android:text="@string/VerRecorrido_boton_borrar" />
-
-            <Button
                 android:id="@+id/detallesBotonVolver"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
                 android:layout_margin="2dp"
-                android:text="@string/VerRecorrido_boton_volver" />
+                android:text="@string/Varios_Volver" />
+
+            <Button
+                android:id="@+id/detallesBotonBorrar"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:layout_margin="2dp"
+                android:text="@string/VerRecorrido_Boton_Borrar"
+                android:textColor="@color/colorAccent" />
         </LinearLayout>
     </ScrollView>
 

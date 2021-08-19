@@ -6,13 +6,13 @@ android {
         applicationId 'ar.edu.unpa.uarg.arielmachini.unparunner'
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 4
-        versionName '2.2'
+        versionCode 5
+        versionName '3.0'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
